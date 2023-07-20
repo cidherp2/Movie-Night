@@ -15,13 +15,17 @@
 
   <main class="bg-black text-white">
     <h3 class="current-date flex justify-center py-4"></h3>
+
     <section class="choose flex justify-center py-4">
       <h2 class="title"></h2>
       <form id="form">
-        <label for="liquor"></label>
+        <label></label>
         <br><br>
-        <select name="liquor" id="inputrequest">
-          <option value="" class="choice"></option>
+        <select name="choice" id="inputrequest">
+          <option class="choice" value=""></option>
+          <option class="choice" value=""></option>
+          <option class="choice" value=""></option>
+          <option class="choice" value=""></option>
         </select>
         <br><br>
         <button class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px4 rounded " type="submit" value="Next" id="nextbtn">Next</button>
@@ -52,5 +56,6 @@
     ></script>
     <script src="./assets/script.js"></script>
     <script src="./assets/cocktail-api.js"></script>
+    <script src="./assets/IMDB-API.js"></script>
 </body> 
 </html>
