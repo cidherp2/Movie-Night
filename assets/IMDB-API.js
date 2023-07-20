@@ -9,14 +9,20 @@ const options = {
   }
 };
 
-const genreSelect = document.getElementById('genreSelect');
+const genreSelect = document.getElementById('inputrequest');
 const selectedGenre = genreSelect.value;
 
 fetch(url, options)
   .then(response => response.json())
   .then(data => {
     const moviesFilteredByGenre = data.filter(movie => movie.genre.includes(selectedGenre));
+    if (moviesFilteredByGenre.length > 0) {
+        const randomMovie = moviesFilteredByGenre[Math.floor(Math.random() * moviesFilteredByGenre.length)];
+        console.log(randomMovie);
+      } else {
+        console.log('No movies found for the selected genre.');
+      }
     console.log(moviesFilteredByGenre);
   })
   .catch(error => console.error('Error:', error));
-}
+};
