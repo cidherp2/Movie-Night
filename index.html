@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<body>
+
+  <header>
+    <h1>Movie Night Planner</h1>
+  </header>
+
+  <main>
+    <h3 class="current-date"></h3>
+    <section class="choose">
+      <h2 class="title"></h2>
+      <form id="form">
+        <label for="liquor"></label>
+        <br><br>
+        <select name="liquor" id="inputrequest">
+          <option value="" class="choice"></option>
+        </select>
+        <br><br>
+        <input type="submit" value="Next" id="nextbtn">
+      </form>
+    </section>
+
+    <section class="results">
+
+    </section>
+
+  </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+</body> 
+</html>
