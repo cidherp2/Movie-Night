@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Movie Night Planner</title>
 </head>
 <body>
 
@@ -23,11 +24,23 @@
           <option value="" class="choice"></option>
         </select>
         <br><br>
+        <button class="bg-blue-500 hover:bg-red-700 text-white fpny bold py-2 px4 rounded" type="submit" value="Next" id="nextbtn"></button>
         <input type="submit" value="Next" id="nextbtn">
       </form>
     </section>
 
     <section class="results">
+        <div id="cocktailResults">
+            <h2>Your Drink</h2>
+            <img id="cocktailThumbnail"></img>
+            <h3 id="cocktailName"></h3>
+        </div>
+
+        <div id="movieResults">
+            <h2>Your Movie</h2>
+            <img id="movieThumbnail"></img>
+            <h3 id="movieName"></h3>
+        </div>
 
     </section>
 
@@ -38,7 +51,7 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
-    <script src="script.js"></script>
-    <script src="./assets/IMDB-API.js"></script>
+    <script src="./assets/script.js"></script>
+    <script src="./assets/cocktail-api.js"></script>
 </body> 
 </html>

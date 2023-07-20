@@ -1,7 +1,11 @@
-var selectedchoice = document.querySelector('#inputrequest')
-var btn = document.querySelector('#nextbtn')
-var allChoices = document.querySelectorAll('.choice')
-var flag = 0;
+let userInputEl = document.getElementsByClassName('choice');
+let submitBtnEl = document.getElementById('nextbtn');
+
+submitBtnEl.addEventListener('click', function() {
+  let userInput = userInputEl.value;
+  getCocktails(userInput);
+
+})
 
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
@@ -53,35 +57,3 @@ async function getCocktails(userInput) {
         return null;
     }
 }
-
-var liquorOptions = [
-	{opt: "Tequila"},
-	{opt: "Vodka"},
-	{opt: "Rum"},
-	{opt: "Whisky"}
-]
-
-var movieGenre = [
-	{opt: "Booo"},
-	{opt: "Kaboom"},
-	{opt: "LOL"},
-	{opt: "In Love"}
-]
-
-
-function setValues(info){
-	for(var i = 0; i < allChoices.length;i++){
-		allChoices[i].textContent = info[i].opt
-		allChoices[i].value = info[i].opt
-	}
-}
-
-setValues(liquorOptions);
-
-btn.addEventListener('click',function(e){
-	e.preventDefault();
-	getCocktails(selectedchoice.value)
-	setValues(movieGenre)
-})
-
-
