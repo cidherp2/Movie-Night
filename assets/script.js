@@ -1,6 +1,5 @@
 var selectedchoice = document.querySelector('#inputrequest')
 var btn = document.querySelector('#nextbtn')
-var allChoices = document.querySelectorAll('.choice')
 var flag = 0;
 
 //request a list of drinks based on liquor type
@@ -78,27 +77,49 @@ function fetchMovieByGenre(genre) {
 	  .catch(error => console.error('Error:', error));
 	};
 
+
 var liquorOptions = [
 	{opt: "Tequila", val:"Tequila"},
 	{opt: "Vodka", val:"Vodka"},
 	{opt: "Rum", val:"Rum"},
-	{opt: "Whisky", val:"Whisky"}
+	{opt: "Whisky", val:"Whisky"},
+	{opt: "Gin", val:"Gin"},
+	{opt: "Bourbon", val:"Bourbon"},
+	{opt: "Mezcal", val:"Mezcal"},
+	{opt: "Beer", val:"Beer"},
 ]
 
 var movieGenre = [
 	{opt: "Booo", val: "Horror"},
 	{opt: "Kaboom", val: "Action"},
 	{opt: "LOL", val: "Comedy"},
-	{opt: "In Love", val: "Drama"}
+	{opt: "In Love", val: "Drama"},
+	{opt: "Wee woo, wee woo", val: "Crime"},
+	{opt: "Give me the creeps", val: "Thriller"},
+	{opt: "Elementary, my dear Watson", val: "Mystery"}
 ]
 
 
+function createOpt(obj){
+	selectedchoice.innerHTML = ''
+	for(var i = 0; i < obj.length;i++){
+		var newElement = document.createElement('option');
+		newElement.classList.add('choice');
+		selectedchoice.append(newElement);
+	}
+}
+
+
+createOpt(liquorOptions);
+
+var allChoices = document.getElementsByClassName('choice');
+
 function setValues(info){
-	for(var i = 0; i < allChoices.length;i++){
+	for(var i = 0; i < info.length;i++){
 		allChoices[i].textContent = info[i].opt
 		allChoices[i].value = info[i].val
 	}
-}
+} 
 
 setValues(liquorOptions);
 
@@ -106,7 +127,8 @@ btn.addEventListener('click',function(e){
 	e.preventDefault();
 	if (flag == 0){
 		getCocktails(selectedchoice.value)
-		setValues(movieGenre)
+		createOpt(movieGenre);
+		setValues(movieGenre);
 	}else if (flag == 1){
 		fetchMovieByGenre(selectedchoice.value)
 	}else{
@@ -114,5 +136,3 @@ btn.addEventListener('click',function(e){
 	}
 	flag++
 })
-
-
