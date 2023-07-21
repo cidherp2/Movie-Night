@@ -2,6 +2,8 @@ var selectedchoice = document.querySelector('#inputrequest')
 var btn = document.querySelector('#nextbtn')
 var allChoices = document.querySelectorAll('.choice')
 var flag = 0;
+let cocktailThumbnailEl = document.getElementById('cocktailThumbnail');
+let cocktailNameEl = document.getElementById('cocktailName');
 
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
@@ -26,12 +28,35 @@ async function getCocktails(userInput) {
       const drinkUrl = 'https://the-cocktail-db.p.rapidapi.com/search.php?s=';
       const drinkResponse = await fetch(drinkUrl + randomDrinkName, options);
       const drinkData = await drinkResponse.json();
-      console.log('Random Drink Details: ', drinkData);
-
+	  const recipe = drinkData.drinks[0].strInstructions;
+	  const drinkImg = drinkData.drinks[0].strDrinkThumb;
+	  const ingredients = getIngredients(drinkData.drinks[0]);
+	  
+	
     } catch (error) {
       console.error('Error fetching cocktails:', error);
     }
   };
+
+  function getIngredients(drink) {
+	const ingredientsArray = [];
+	for (let i = 1; i <= 15; i++) {
+	  const ingredientKey = `strIngredient${i}`;
+	  const ingredientValue = drink[ingredientKey];
+	  if (ingredientValue) {
+		ingredientsArray.push(ingredientValue);
+	  }
+	}
+	return ingredientsArray;
+  }
+
+function displayCocktail(imageUrl, recipe, ingredients) {
+	cocktailThumbnailEl.src = drinkImg;
+	cocktailNameEl.textContent = randomDrinkName;
+
+}
+
+
   
   //gets the info from the 1st fetch and selects a random drink to send to the 2nd fetch
   function getRandomDrink(apiResponse) {
