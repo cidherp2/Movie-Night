@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Movie Night Planner</title>
 </head>
-<body>
-
-  <header class="flex justify-center py-4 bg-violet-900 text-white font-bold">
-    <h1>Movie Night Planner</h1>
+<body class="bg-black text-white ">
+  <header class="flex justify-center py-8 bg-violet-900 text-white font-bold">
+    <h1 class="text-4xl">Movie Night Planner</h1>
   </header>
 
-  <main class="bg-black text-white">
+  <main class="text-white min-h-screen">
     <h3 class="current-date flex justify-center py-4"></h3>
 
     <section class="choose flex justify-center py-4">
@@ -21,14 +19,14 @@
       <form id="form">
         <label></label>
         <br><br>
-        <select name="choice" id="inputrequest">
+        <select class="bg-gray-500 text-white font-bold" name="choice" id="inputrequest">
           <option class="choice" value=""></option>
           <option class="choice" value=""></option>
           <option class="choice" value=""></option>
           <option class="choice" value=""></option>
         </select>
         <br><br>
-        <button class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px4 rounded " type="submit" value="Next" id="nextbtn">Next</button>
+        <button class="bg-blue-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-xl" type="submit" id="nextbtn">Next</button>
       </form>
     </section>
 
