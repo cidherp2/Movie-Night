@@ -1,8 +1,6 @@
 var selectedchoice = document.querySelector('#inputrequest')
 var btn = document.querySelector('#nextbtn')
 var flag = 0;
-let cocktailThumbnailEl = document.getElementById('cocktailThumbnail');
-let cocktailNameEl = document.getElementById('cocktailName');
 
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
@@ -30,6 +28,8 @@ async function getCocktails(userInput) {
 	  const recipe = drinkData.drinks[0].strInstructions;
 	  const drinkImg = drinkData.drinks[0].strDrinkThumb;
 	  const ingredients = getIngredients(drinkData.drinks[0]);
+
+	  displayCocktail(drinkImg, randomDrinkName, recipe, ingredients);
 	  
 	
     } catch (error) {
@@ -49,9 +49,25 @@ async function getCocktails(userInput) {
 	return ingredientsArray;
   }
 
-function displayCocktail(imageUrl, recipe, ingredients) {
-	cocktailThumbnailEl.src = drinkImg;
-	cocktailNameEl.textContent = randomDrinkName;
+function displayCocktail(imageUrl, cocktailName, recipe, ingredients) {
+	let cocktailThumbnailEl = document.getElementById('cocktailThumbnail');
+	let cocktailNameEl = document.getElementById('cocktailName');
+	let ingredientsListEL = document.getElementById('ingredientsList');
+	let recipeEl = document.getElementById('recipe');
+
+	cocktailThumbnailEl.src = imageUrl;
+	cocktailNameEl.textContent = cocktailName;
+	
+	// Clear previous ingredient list if any
+	ingredientsListEL.innerHTML = '';
+
+	for (i = 0; i < ingredients.length; i++) {
+		let ingredientItemEl = document.createElement('li');
+		ingredientItemEl.textContent = `${i + 1}. ${ingredients[i]}`;
+		ingredientsListEL.appendChild(ingredientItemEl);
+	}
+	
+	recipeEl.textContent = recipe;
 
 }
 
