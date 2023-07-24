@@ -1,11 +1,18 @@
 let userInputEl = document.getElementsByClassName('choice');
 let submitBtnEl = document.getElementById('nextbtn');
+let cocktailThumbnailEl = document.getElementById('cocktailThumbnail');
+let cocktailNameEl = document.getElementById('cocktailName');
 
 submitBtnEl.addEventListener('click', function() {
   let userInput = userInputEl.value;
   getCocktails(userInput);
 
 })
+
+/*function displayCocktail(apiResponse) {
+  let drink = apiResponse.drinks.
+  
+}*/
 
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
@@ -23,6 +30,8 @@ async function getCocktails(userInput) {
       const data = await response.json();
       console.log(data);
 
+
+
       //2nd request to get specific drink information
       const randomDrinkName = getRandomDrink(data);
       console.log('Random Drink: ', randomDrinkName);
@@ -31,6 +40,13 @@ async function getCocktails(userInput) {
       const drinkResponse = await fetch(drinkUrl + randomDrinkName, options);
       const drinkData = await drinkResponse.json();
       console.log('Random Drink Details: ', drinkData);
+      
+      const drink = randomDrinkName
+      const drinkImg = drinkData.drinks[0].strDrinkThumb
+      const drinkRecipe = drinkData.drinks.strInstructions
+
+      console.log(drinkImg + "123")
+      /*displayCocktail()*/
 
     } catch (error) {
       console.error('Error fetching cocktails:', error);

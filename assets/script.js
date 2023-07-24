@@ -25,12 +25,53 @@ async function getCocktails(userInput) {
       const drinkUrl = 'https://the-cocktail-db.p.rapidapi.com/search.php?s=';
       const drinkResponse = await fetch(drinkUrl + randomDrinkName, options);
       const drinkData = await drinkResponse.json();
-      console.log('Random Drink Details: ', drinkData);
+	  const recipe = drinkData.drinks[0].strInstructions;
+	  const drinkImg = drinkData.drinks[0].strDrinkThumb;
+	  const ingredients = getIngredients(drinkData.drinks[0]);
 
+	  displayCocktail(drinkImg, randomDrinkName, recipe, ingredients);
+	  
+	
     } catch (error) {
       console.error('Error fetching cocktails:', error);
     }
   };
+
+  function getIngredients(drink) {
+	const ingredientsArray = [];
+	for (let i = 1; i <= 15; i++) {
+	  const ingredientKey = `strIngredient${i}`;
+	  const ingredientValue = drink[ingredientKey];
+	  if (ingredientValue) {
+		ingredientsArray.push(ingredientValue);
+	  }
+	}
+	return ingredientsArray;
+  }
+
+function displayCocktail(imageUrl, cocktailName, recipe, ingredients) {
+	let cocktailThumbnailEl = document.getElementById('cocktailThumbnail');
+	let cocktailNameEl = document.getElementById('cocktailName');
+	let ingredientsListEL = document.getElementById('ingredientsList');
+	let recipeEl = document.getElementById('recipe');
+
+	cocktailThumbnailEl.src = imageUrl;
+	cocktailNameEl.textContent = cocktailName;
+	
+	// Clear previous ingredient list if any
+	ingredientsListEL.innerHTML = '';
+
+	for (i = 0; i < ingredients.length; i++) {
+		let ingredientItemEl = document.createElement('li');
+		ingredientItemEl.textContent = `${i + 1}. ${ingredients[i]}`;
+		ingredientsListEL.appendChild(ingredientItemEl);
+	}
+	
+	recipeEl.textContent = recipe;
+
+}
+
+
   
   //gets the info from the 1st fetch and selects a random drink to send to the 2nd fetch
   function getRandomDrink(apiResponse) {
