@@ -1,0 +1,26 @@
+#center-h2 {
+    display: flex;
+    width: fit-content;
+block-size: fit-content;
+justify-content: center;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#centrar-choose {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+block-size: fit-content;
+align-items: center;
+margin: 0px;
+}
+
+#centrar-todo{
+    display: flex;
+    justify-content: center;
+}
