@@ -142,13 +142,13 @@ var liquorOptions = [
 ]
 
 var movieGenre = [
-	{opt: "Booo", val: "Horror"},
-	{opt: "Kaboom", val: "Action"},
-	{opt: "LOL", val: "Comedy"},
-	{opt: "In Love", val: "Drama"},
-	{opt: "Wee woo, wee woo", val: "Crime"},
-	{opt: "Give me the creeps", val: "Thriller"},
-	{opt: "Elementary, my dear Watson", val: "Mystery"}
+	{opt: "Boo!👻", val: "Horror"},
+	{opt: "Kaboom!💥", val: "Action"},
+	{opt: "LOL😂", val: "Comedy"},
+	{opt: "In Love😍", val: "Drama"},
+	{opt: "Hands up!👮", val: "Crime"},
+	{opt: "OMG😱", val: "Thriller"},
+	{opt: "Who did it?🕵️‍♂️", val: "Mystery"}
 ]
 
 var liquorPrompt = "CHOOSE YOUR POISON.."
