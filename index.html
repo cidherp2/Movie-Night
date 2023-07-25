@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Movie Night Planner</title>
+    <link rel="stylesheet" type="text/css" href="/assets/style.css" />
 </head>
 <body class="bg-black text-white ">
   <header class="flex justify-center py-8 bg-violet-900 text-white font-bold">
@@ -13,9 +14,12 @@
 
   <main class="text-white min-h-screen">
     <h3 class="current-date flex justify-center py-4"></h3>
-
-    <section class="choose flex justify-center py-4">
-      <h2 id="prompt"></h2>
+<div id="centrar-todo">
+    <section class="choose flex justify-center py-4" id ="centrar-choose">
+      <div  id = "center-h2">
+        <h2 id="prompt"></h2>
+      </div>
+      
       <form id="form">
         <label></label>
         <br><br>
@@ -29,6 +33,7 @@
         <button class="bg-blue-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-xl" type="submit" id="nextbtn">Next</button>
       </form>
     </section>
+    </div>
 
     <section class="results flex flex-wrap justify-center py-3 px-6">
         <div id="cocktailResults" class="w-full md:w-1/2 text-center">
