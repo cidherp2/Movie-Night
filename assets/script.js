@@ -2,6 +2,7 @@ var selectedchoice = document.querySelector('#inputrequest')
 var btn = document.querySelector('#nextbtn')
 var flag = 0;
 var promptEl = document.getElementById('prompt');
+var resultsEl = document.getElementById('resultsEsconder');
 
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
@@ -187,8 +188,9 @@ btn.addEventListener('click',function(e){
 		setValues(movieGenre);
 	}else if (flag == 1){
 		fetchMovieByGenre(selectedchoice.value)
+		
 	}else{
-		// show last part
+		resultsEl.classList.remove("esconder");
 	}
 	flag++
 })
