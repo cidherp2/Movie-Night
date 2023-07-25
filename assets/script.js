@@ -1,6 +1,7 @@
 var selectedchoice = document.querySelector('#inputrequest')
 var btn = document.querySelector('#nextbtn')
 var flag = 0;
+var promptEl = document.getElementById('prompt');
 
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
@@ -8,7 +9,7 @@ async function getCocktails(userInput) {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '4676b27f95mshdbca90ca01fd3ddp1bbae7jsn4ddba016d87a',
+        'X-RapidAPI-Key': '6e39ff3dc7mshef2cc7f2d0cd2f8p10909ajsn29fea5c5d165',
         'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
       }
     };
@@ -35,7 +36,7 @@ async function getCocktails(userInput) {
     } catch (error) {
       console.error('Error fetching cocktails:', error);
     }
-  };
+};
 
   function getIngredients(drink) {
 	const ingredientsArray = [];
@@ -47,7 +48,7 @@ async function getCocktails(userInput) {
 	  }
 	}
 	return ingredientsArray;
-  }
+}
 
 function displayCocktail(imageUrl, cocktailName, recipe, ingredients) {
 	let cocktailThumbnailEl = document.getElementById('cocktailThumbnail');
@@ -140,18 +141,22 @@ var movieGenre = [
 	{opt: "Elementary, my dear Watson", val: "Mystery"}
 ]
 
+var liquorPrompt = "CHOOSE YOUR POISON.."
+var moviePrompt = "CHOOSE YOUR MOOD.."
 
-function createOpt(obj){
+function createOpt(obj, prompt){
 	selectedchoice.innerHTML = ''
 	for(var i = 0; i < obj.length;i++){
 		var newElement = document.createElement('option');
 		newElement.classList.add('choice');
 		selectedchoice.append(newElement);
+
+		promptEl.textContent = prompt
 	}
 }
 
 
-createOpt(liquorOptions);
+createOpt(liquorOptions, liquorPrompt);
 
 var allChoices = document.getElementsByClassName('choice');
 
@@ -168,7 +173,7 @@ btn.addEventListener('click',function(e){
 	e.preventDefault();
 	if (flag == 0){
 		getCocktails(selectedchoice.value)
-		createOpt(movieGenre);
+		createOpt(movieGenre, moviePrompt);
 		setValues(movieGenre);
 	}else if (flag == 1){
 		fetchMovieByGenre(selectedchoice.value)
