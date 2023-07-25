@@ -9,7 +9,7 @@ async function getCocktails(userInput) {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '4676b27f95mshdbca90ca01fd3ddp1bbae7jsn4ddba016d87a',
+        'X-RapidAPI-Key': '286098fed5msh8690e36521ae81ap1866b2jsnea50adab0e73',
         'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
       }
     };
