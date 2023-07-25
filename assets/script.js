@@ -191,16 +191,22 @@ btn.addEventListener('click',function(e){
 		setValues(movieGenre);
 	}else if (flag == 1){
 		fetchMovieByGenre(selectedchoice.value)
-		
-	}else{
+
 		resultsEl.classList.remove("esconder");
+	resultsEl.classList.add("resltsFormato");
 		inputEl.classList.add("esconder");
 		h2El.classList.add("esconder");
 		butEl.classList.add("esconder");
 		
+	}else{
+
+		
+		
 	}
 	
 	flag++
+
+	
 })
 
-formEl.classList.add("esconder");
+

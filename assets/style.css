@@ -29,7 +29,7 @@ margin: 0px;
     display: none;
 }
 
-#resultsEsconder{
+.resltsFormato{
 display: flex;
 flex-direction: row;
 }
