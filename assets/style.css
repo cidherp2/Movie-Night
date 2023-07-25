@@ -29,7 +29,8 @@ margin: 0px;
     display: none;
 }
 
-#claseparapush{
-    
+#resultsEsconder{
+display: flex;
+flex-direction: row;
 }
 

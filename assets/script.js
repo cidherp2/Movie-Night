@@ -3,6 +3,9 @@ var btn = document.querySelector('#nextbtn')
 var flag = 0;
 var promptEl = document.getElementById('prompt');
 var resultsEl = document.getElementById('resultsEsconder');
+var h2El = document.getElementById('prompt');
+var inputEl = document.getElementById('inputrequest');
+var butEl = document.getElementById('nextbtn');
 
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
@@ -191,6 +194,13 @@ btn.addEventListener('click',function(e){
 		
 	}else{
 		resultsEl.classList.remove("esconder");
+		inputEl.classList.add("esconder");
+		h2El.classList.add("esconder");
+		butEl.classList.add("esconder");
+		
 	}
+	
 	flag++
 })
+
+formEl.classList.add("esconder");
