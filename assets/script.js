@@ -1,6 +1,7 @@
 var selectedchoice = document.querySelector('#inputrequest')
 var btn = document.querySelector('#nextbtn')
 var flag = 0;
+var promptEl = document.getElementById('prompt');
 
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
@@ -140,18 +141,22 @@ var movieGenre = [
 	{opt: "Elementary, my dear Watson", val: "Mystery"}
 ]
 
+var liquorPrompt = "CHOOSE YOUR POISON.."
+var moviePrompt = "CHOOSE YOUR MOOD.."
 
-function createOpt(obj){
+function createOpt(obj, prompt){
 	selectedchoice.innerHTML = ''
 	for(var i = 0; i < obj.length;i++){
 		var newElement = document.createElement('option');
 		newElement.classList.add('choice');
 		selectedchoice.append(newElement);
+
+		promptEl.textContent = prompt
 	}
 }
 
 
-createOpt(liquorOptions);
+createOpt(liquorOptions, liquorPrompt);
 
 var allChoices = document.getElementsByClassName('choice');
 
@@ -168,7 +173,7 @@ btn.addEventListener('click',function(e){
 	e.preventDefault();
 	if (flag == 0){
 		getCocktails(selectedchoice.value)
-		createOpt(movieGenre);
+		createOpt(movieGenre, moviePrompt);
 		setValues(movieGenre);
 	}else if (flag == 1){
 		fetchMovieByGenre(selectedchoice.value)
