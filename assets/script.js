@@ -9,7 +9,7 @@ async function getCocktails(userInput) {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '4676b27f95mshdbca90ca01fd3ddp1bbae7jsn4ddba016d87a',
+        'X-RapidAPI-Key': '6e39ff3dc7mshef2cc7f2d0cd2f8p10909ajsn29fea5c5d165',
         'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
       }
     };
@@ -36,7 +36,7 @@ async function getCocktails(userInput) {
     } catch (error) {
       console.error('Error fetching cocktails:', error);
     }
-  };
+};
 
   function getIngredients(drink) {
 	const ingredientsArray = [];
@@ -48,7 +48,7 @@ async function getCocktails(userInput) {
 	  }
 	}
 	return ingredientsArray;
-  }
+}
 
 function displayCocktail(imageUrl, cocktailName, recipe, ingredients) {
 	let cocktailThumbnailEl = document.getElementById('cocktailThumbnail');
