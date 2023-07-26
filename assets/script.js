@@ -6,7 +6,7 @@ document.querySelector('.results').style.display = "none";
 var cocktail =  ''
 var movie =  ''
 
-//request a list of drinks based on liquor type
+//request a list of drinks based on liquor type API Function.
 async function getCocktails(userInput) {
     const url = 'https://the-cocktail-db.p.rapidapi.com/filter.php?i=';
     const options = {
@@ -22,7 +22,7 @@ async function getCocktails(userInput) {
       const data = await response.json();
       console.log(data);
 
-      //2nd request to get specific drink information
+      //2nd request to get specific drink information.
       const randomDrinkName = getRandomDrink(data);
       console.log('Random Drink: ', randomDrinkName);
 	  cocktail = randomDrinkName;
@@ -41,7 +41,7 @@ async function getCocktails(userInput) {
       console.error('Error fetching cocktails:', error);
     }
 };
-
+// Returns the ingredients for the drink recipe.
   function getIngredients(drink) {
 	const ingredientsArray = [];
 	for (let i = 1; i <= 15; i++) {
@@ -53,7 +53,7 @@ async function getCocktails(userInput) {
 	}
 	return ingredientsArray;
 }
-
+//Function that displays the cocktail name, image, recipe and ingredients correctly on the HTML.
 function displayCocktail(imageUrl, cocktailName, recipe, ingredients) {
 	let cocktailThumbnailEl = document.getElementById('cocktailThumbnail');
 	let cocktailNameEl = document.getElementById('cocktailName');
@@ -98,7 +98,7 @@ function displayCocktail(imageUrl, cocktailName, recipe, ingredients) {
         return null;
     }
 }
-
+//API to fetch the top 100 movies from IMDB
 function fetchMovieByGenre(genre) {
 	const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
 	const options = {
@@ -112,6 +112,7 @@ function fetchMovieByGenre(genre) {
 	fetch(url, options)
 	  .then(response => response.json())
 	  .then(data => {
+		//Filters the results from the API to the selected Genre
 		const moviesFilteredByGenre = data.filter(movie => movie.genre.includes(selectedGenre));
 		if (moviesFilteredByGenre.length > 0) {
 			const randomMovie = moviesFilteredByGenre[Math.floor(Math.random() * moviesFilteredByGenre.length)];
@@ -120,7 +121,7 @@ function fetchMovieByGenre(genre) {
 			let imgUrl = randomMovie.image
 			movie = randomMovie.title
 			let movieYear = randomMovie.year
-	
+	//Displays the movie thumbnail, year and movie name
 			movieThumbnailEl.src = imgUrl
 			movieTitleEl.textContent = (movie + " (" + movieYear +")")
 			
@@ -133,7 +134,7 @@ function fetchMovieByGenre(genre) {
 
 
 
-
+//Liquor options and their values
 var liquorOptions = [
 	{opt: "Tequila", val:"Tequila"},
 	{opt: "Vodka", val:"Vodka"},
@@ -144,7 +145,7 @@ var liquorOptions = [
 	{opt: "Mezcal", val:"Mezcal"},
 	{opt: "Beer", val:"Beer"},
 ]
-
+//Movie genres and their values
 var movieGenre = [
 	{opt: "Boo!👻", val: "Horror"},
 	{opt: "Kaboom!💥", val: "Action"},
@@ -154,10 +155,10 @@ var movieGenre = [
 	{opt: "OMG😱", val: "Thriller"},
 	{opt: "Who did it?🕵️‍♂️", val: "Mystery"}
 ]
-
+//The 2 questions of the app
 var liquorPrompt = "CHOOSE YOUR POISON.."
 var moviePrompt = "CHOOSE YOUR MOOD.."
-
+//function that creates the prompt question to select drink and movie
 function createOpt(obj, prompt){
 	selectedchoice.innerHTML = ''
 	for(var i = 0; i < obj.length;i++){
@@ -182,7 +183,7 @@ function setValues(info){
 } 
 
 setValues(liquorOptions);
-
+//first and second question that activates at button click.
 btn.addEventListener('click',function(e){
 	e.preventDefault();
 	if (flag == 0){
