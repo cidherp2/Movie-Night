@@ -2,6 +2,9 @@ var selectedchoice = document.querySelector('#inputrequest')
 var btn = document.querySelector('#nextbtn')
 var flag = 0;
 var promptEl = document.getElementById('prompt');
+document.querySelector('.results').style.display = "none";
+var cocktail =  ''
+var movie =  ''
 
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
@@ -22,6 +25,7 @@ async function getCocktails(userInput) {
       //2nd request to get specific drink information
       const randomDrinkName = getRandomDrink(data);
       console.log('Random Drink: ', randomDrinkName);
+	  cocktail = randomDrinkName;
 
       const drinkUrl = 'https://the-cocktail-db.p.rapidapi.com/search.php?s=';
       const drinkResponse = await fetch(drinkUrl + randomDrinkName, options);
@@ -114,11 +118,11 @@ function fetchMovieByGenre(genre) {
 			let movieThumbnailEl = document.getElementById('movieThumbnail');
 			let movieTitleEl = document.getElementById('movieName');
 			let imgUrl = randomMovie.image
-			let movieTitle = randomMovie.title
+			movie = randomMovie.title
 			let movieYear = randomMovie.year
 	
 			movieThumbnailEl.src = imgUrl
-			movieTitleEl.textContent = (movieTitle + " (" + movieYear +")")
+			movieTitleEl.textContent = (movie + " (" + movieYear +")")
 			
 		  } else {
 			console.log('No movies found for the selected genre.');
@@ -187,8 +191,8 @@ btn.addEventListener('click',function(e){
 		setValues(movieGenre);
 	}else if (flag == 1){
 		fetchMovieByGenre(selectedchoice.value)
-	}else{
-		// show last part
+		document.querySelector('#centrar-todo').style.display = "none";
+		document.querySelector('.results').style.display = "flex";
 	}
 	flag++
 })
