@@ -11,9 +11,9 @@
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
 </head>
 <body class="bg-black text-white ">
-  <header class="flex justify-between items-center py-8 bg-violet-900 text-white font-bold">
+  <header class="flex justify-between items-center py-8 bg-violet-900 text-white font-bold p-6">
     <h1 class="text-4xl font-serif mx-auto">Movie Night Planner</h1>
-    <span class="text-lG cursor-pointer" id="seeFavorites">My favorites</span>
+    <span class="text-lG cursor-pointer p-2" id="seeFavorites">My favorites</span>
     <i class="fi fi-rr-popcorn"></i>
   </header>
 
@@ -35,24 +35,26 @@
           <button class="bg-blue-500 hover:bg-red-700 text-white font-bold p-2 rounded-lg text-xl font-sans" type="submit" id="nextbtn">Next</button>
         </form>
 
+        <div class="hidden flex flex-wrap justify-center py-3 px-6 w-full" id="favoritesDiv">
+
+          <div id="favoriteDrinksDiv" class="w-full md:w-1/2 text-center m-7">
+            <h2 class="text-xl font-serif font-bold">Your Favorites Drinks</h2>
+            <ul id="favoriteDrinksList">
+              
+            </ul>
+          </div>
+          
+          <div id="favoriteMoviesDiv" class="w-full md:w-1/2 text-center">
+            <h2 class="text-xl font-serif font-bold ">Your Favorites Movies</h2>
+            <ul id="favoriteMoviesList">
+            </ul>
+          </div>
+
+        </div>
+
       </section>
     </div>
 
-    <div class="hidden flex flex-wrap justify-center py-3 px-6" id="favoritesDiv">
-      <div id="favoriteDrinksDiv" class="w-full md:w-1/3 text-center">
-        <h2 class="text-xl font-serif font-bold">Your Favorites Drinks</h2>
-        <ul id="favoriteDrinksList">
-
-        </ul>
-      </div>
-      
-      <div id="favoriteMoviesDiv" class="w-full md:w-1/3 text-center">
-        <h2 class="text-xl font-serif font-bold">Your Favorites Movies</h2>
-        <ul id="favoriteMoviesList">
-
-        </ul>
-      </div>
-    </div>
 
     <section class="results flex flex-wrap justify-center py-3 px-6 rounded">
         <div id="cocktailResults" class="w-full md:w-1/3 text-center">
@@ -83,10 +85,19 @@
             </div>
             
         </div>
-        <div class="main-page-buton-mover">
-        <div>
-          <button class="w-full text-center items-center bg-gray-500 rounded p-2" id="refresh" alt="go main page button">Go main page</button>
-        </div>
+
+        <div class="main-page-buton-mover text-center">
+
+          <div class="my-10">
+            <button class="w-full text-center items-center bg-gray-500 rounded p-2 text-xl" id="refresh" alt="go main page button">Go main page</button>
+          </div>
+
+          <div class="text-center mt-10 pt-8 text-xl">
+            <input type="submit" value="&#9829;" id="savebtn" class="bg-red-500 hover:bg-red-800 px-2 rounded mb-3 cursor-pointer">
+            <br>
+            <label for="savebtn">Save this mix</label>
+          </div>
+
         </div>
 
         <div id="movieResults" class="w-full md:w-1/3 text-center">
@@ -94,6 +105,7 @@
             <img id="movieThumbnail" class="w-[350px] h-[400px] mx-auto py-4 my-auto py-4" alt="image of a random Movie"></img>
             <h3 id="movieName" class="my-4 text-2xl font-bold"></h3>
         </div>
+
 
     </section>
 
