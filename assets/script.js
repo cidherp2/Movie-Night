@@ -87,9 +87,9 @@ function displayCocktail(imageUrl, cocktailName, recipe, ingredients) {
 
 
   
-  //gets the info from the 1st fetch and selects a random drink to send to the 2nd fetch
-  function getRandomDrink(apiResponse) {
-    try {
+//gets the info from the 1st fetch and selects a random drink to send to the 2nd fetch
+function getRandomDrink(apiResponse) {
+	try {
         const drinksList = apiResponse.drinks;
 
         if (drinksList.length === 0) {
@@ -105,7 +105,7 @@ function displayCocktail(imageUrl, cocktailName, recipe, ingredients) {
     } catch (error) {
         console.error('Error:', error.message);
         return null;
-    }
+	}
 }
 
 function fetchMovieByGenre(genre) {
@@ -194,6 +194,8 @@ setValues(liquorOptions);
 
 btn.addEventListener('click',function(e){
 	e.preventDefault();
+	document.querySelector('#seeFavorites').style.display = "none"
+	document.querySelector('#favoritesDiv').style.display = 'none'
 	if (flag == 0){
 		getCocktails(selectedchoice.value)
 		createOpt(movieGenre, moviePrompt);
@@ -212,3 +214,36 @@ var refreshpage = document.querySelector('#refresh');
 refreshpage.addEventListener('click', function(){
 	location.reload()
 })
+
+var savebtn = document.querySelector('#savebtn');
+var favoriteDList = document.querySelector("#favoriteDrinksList")
+var favoriteMList = document.querySelector("#favoriteMoviesList")
+
+savebtn.addEventListener('click', function(){
+
+	var allFavs = [];
+	var storage = {'cocktail':cocktail,'movie':movie}
+	allFavs = JSON.parse(localStorage.getItem('favorites')) || []
+
+	allFavs.push(storage)
+
+	localStorage.setItem('favorites',JSON.stringify(allFavs));
+})
+
+var allItems = JSON.parse(localStorage.getItem('favorites')) || []
+
+if (allItems.length == 0){
+	console.log("no")
+	favoriteDList.innerHTML = ("No favorites found")
+	favoriteMList.innerHTML = ("No favorites found")
+}
+
+for (var i=0;i<allItems.length;i++){
+		favoriteDList.innerHTML +=(`<li>` + allItems[i].cocktail + `</li>`);
+		favoriteMList.innerHTML +=(`<li>` + allItems[i].movie + `</li>`);
+}
+
+
+
+
+
