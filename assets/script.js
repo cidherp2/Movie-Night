@@ -15,6 +15,13 @@ seeFavoritesSpan.addEventListener('click', () => {
   favoritesDiv.classList.toggle('hidden');
 });
 
+function saveToFavorites(type, item) {
+	const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+	favorites.push({ type, item });
+	localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
+  
+
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
     const url = 'https://the-cocktail-db.p.rapidapi.com/filter.php?i=';
@@ -83,6 +90,10 @@ function displayCocktail(imageUrl, cocktailName, recipe, ingredients) {
 	
 	recipeEl.textContent = recipe;
 
+	let likeDrinkButtonEl = document.createElement('button');
+	likeDrinkButtonEl.textContent = '❤️ Save Drink';
+	likeDrinkButtonEl.classList.add('like-button');
+	document.getElementById('cocktailSaved').appendChild(likeDrinkButtonEl);
 }
 
 
@@ -138,7 +149,8 @@ function fetchMovieByGenre(genre) {
 		  }
 	  })
 	  .catch(error => console.error('Error:', error));
-};
+
+}
 
 
 
@@ -204,9 +216,17 @@ btn.addEventListener('click',function(e){
 		fetchMovieByGenre(selectedchoice.value)
 		document.querySelector('#centrar-todo').style.display = "none";
 		document.querySelector('.results').style.display = "flex";
+
+		document.getElementById('cocktailResults').addEventListener('click', function (event) {
+			if (event.target.classList.contains('like-button')) {
+			  const cocktailName = document.getElementById('cocktailName').textContent;
+			  saveToFavorites('cocktail', cocktailName);
+			  playSound();
+			}
+		});
 	}
 	flag++
-})
+});
 
 
 var refreshpage = document.querySelector('#refresh');
