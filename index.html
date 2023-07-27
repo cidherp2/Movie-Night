@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Movie Night Planner</title>
-    <link rel="stylesheet" type="text/css" href="/assets/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
 </head>
 <body class="bg-black text-white ">
-  <header class="flex justify-center py-8 bg-violet-900 text-white font-bold">
-    <h1 class="text-4xl font-serif">Movie Night Planner</h1>
+  <header class="flex justify-between items-center py-8 bg-violet-900 text-white font-bold">
+    <h1 class="text-4xl font-serif mx-auto">Movie Night Planner</h1>
+    <span class="text-sm cursor-pointer" id="seeFavorites">my favorites</span>
   </header>
 
   <main class="text-white min-h-screen">
@@ -30,6 +31,22 @@
         </form>
 
       </section>
+    </div>
+
+    <div class="hidden" id="favoritesDiv">
+      <div id="favoriteDrinksDiv">
+        <h2>Your Favorite Drinks</h2>
+        <ul id="favoriteDrinksList">
+
+        </ul>
+      </div>
+      
+      <div id="favoriteMoviesDiv">
+        <h2>Your Favorite Movies</h2>
+        <ul id="favoriteMoviesList">
+
+        </ul>
+      </div>
     </div>
 
     <section class="results flex flex-wrap justify-center py-3 px-6 rounded">

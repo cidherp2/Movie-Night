@@ -6,6 +6,15 @@ document.querySelector('.results').style.display = "none";
 var cocktail =  ''
 var movie =  ''
 
+const seeFavoritesSpan = document.getElementById('seeFavorites');
+const favoritesDiv = document.getElementById('favoritesDiv');
+
+// Add click event listener to the SEE FAVORITES
+seeFavoritesSpan.addEventListener('click', () => {
+  // Toggle the visibility of the div
+  favoritesDiv.classList.toggle('hidden');
+});
+
 //request a list of drinks based on liquor type
 async function getCocktails(userInput) {
     const url = 'https://the-cocktail-db.p.rapidapi.com/filter.php?i=';
