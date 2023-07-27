@@ -14,7 +14,7 @@ Movie Planner is designed to add an extra layer of enjoyment to your movie night
 
 ## Usage
 
-1. Launch the Movie Planner application by clicking on the following link: [Movie Planner]().
+1. Launch the Movie Planner application by clicking on the following link: [Movie Planner](cidherp2.github.io/Movie-Night/).
 2. The app will prompt you to select one type of liquor from a provided list. You can choose from options like vodka, rum, gin, tequila, whiskey, etc.
 3. After choosing your preferred liquor, the app will then ask you to select your mood. Each mood represents movie genres such as action, comedy, drama, sci-fi, romance, etc.
 4. Once you've made your selections, click the "Next" button.
