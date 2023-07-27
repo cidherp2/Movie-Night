@@ -25,36 +25,14 @@ display: flex;
 justify-content: center;
 }
 
-
-
-
-@media screen and (max-width: 748px) {
-
-    .main-page-buton-mover{
-        margin-bottom: 0;
-    }
-
-    #seeFavorites:hover{
-        border-bottom: 5px solid rgb(0, 0, 0);
-        margin-bottom: 10px;
-    }
-
-    .my-10{
-        padding-bottom: 0%;
-        margin-bottom: 0%;
-    }
-
-    #boton-fav{
-        padding-bottom: 20px;
-    }
-
-    #head-principal{
-        display: flex;
-        flex-direction: column;
-    }
-    
-
+#head-principal{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding-left: 10%
 }
+
 
 #seeFavorites:hover{
     border-bottom: 5px solid rgb(0, 0, 0);
