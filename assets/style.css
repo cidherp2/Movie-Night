@@ -25,15 +25,34 @@ display: flex;
 justify-content: center;
 }
 
+
+
 @media screen and (max-width: 768px) {
 
     .main-page-buton-mover{
-        position: absolute;
-        flex-direction: row;
-        display: flex;
-        align-items: flex-end;
-        height: 100vh
+        margin-bottom: 0;
     }
+
+    #seeFavorites:hover{
+        border-bottom: 5px solid rgb(0, 0, 0);
+        margin-bottom: 10px;
+    }
+
+    .my-10{
+        padding-bottom: 0%;
+        margin-bottom: 0%;
+    }
+
+    #boton-fav{
+        padding-bottom: 20px;
+    }
+
+    #head-principal{
+        display: flex;
+        flex-direction: column;
+    }
+    
+
 }
 
 #seeFavorites:hover{
