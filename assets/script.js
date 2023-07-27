@@ -29,11 +29,9 @@ async function getCocktails(userInput) {
     try {
       const response = await fetch(url + userInput, options);
       const data = await response.json();
-      console.log(data);
 
       //2nd request to get specific drink information
       const randomDrinkName = getRandomDrink(data);
-      console.log('Random Drink: ', randomDrinkName);
 	  cocktail = randomDrinkName;
 
       const drinkUrl = 'https://the-cocktail-db.p.rapidapi.com/search.php?s=';
