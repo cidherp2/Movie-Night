@@ -219,6 +219,11 @@ var savebtn = document.querySelector('#savebtn');
 var favoriteDList = document.querySelector("#favoriteDrinksList")
 var favoriteMList = document.querySelector("#favoriteMoviesList")
 
+function playSound() {
+	const audio = new Audio('./assets/sounds/ping-82822.mp3'); // Replace 'path_to_your_audio_file.mp3' with the actual path to your audio file
+	audio.play();
+  }
+
 savebtn.addEventListener('click', function(){
 
 	var allFavs = [];
@@ -228,6 +233,7 @@ savebtn.addEventListener('click', function(){
 	allFavs.push(storage)
 
 	localStorage.setItem('favorites',JSON.stringify(allFavs));
+	playSound();
 })
 
 var allItems = JSON.parse(localStorage.getItem('favorites')) || []

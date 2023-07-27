@@ -27,7 +27,8 @@ justify-content: center;
 
 
 
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 748px) {
 
     .main-page-buton-mover{
         margin-bottom: 0;
@@ -51,6 +52,66 @@ justify-content: center;
         display: flex;
         flex-direction: column;
     }
+    
+
+}
+
+#seeFavorites:hover{
+    border-bottom: 5px solid rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 748px) {
+
+    .main-page-buton-mover{
+        margin-bottom: 0;
+    }
+
+    #seeFavorites:hover{
+        border-bottom: 5px solid rgb(0, 0, 0);
+        margin-bottom: 10px;
+    }
+
+    .my-10{
+        padding-bottom: 0%;
+        margin-bottom: 0%;
+    }
+
+    #boton-fav{
+        padding-bottom: 20px;
+    }
+
+    #head-principal{
+        display: flex;
+        overflow-wrap: normal;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #cocktailThumbnail{
+    height: auto;
+    border-radius: 0%;
+    width: 75%;
+
+    }
+
+    #movieThumbnail{
+        height: auto;
+        border-radius: 0%;
+        width: 75%;
+    
+    }
+    #letra-header{
+    
+    }
+
+   .main-page-buton-mover text-center{
+  padding: 0px;
+   }
+
+   #boton-fav{
+    padding-top: 10;
+    margin-top: 0;
+   }
     
 
 }
