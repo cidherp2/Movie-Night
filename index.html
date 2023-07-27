@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Movie Night Planner</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
 </head>
 <body class="bg-black text-white ">
   <header class="flex justify-between items-center py-8 bg-violet-900 text-white font-bold">
     <h1 class="text-4xl font-serif mx-auto">Movie Night Planner</h1>
     <span class="text-sm cursor-pointer" id="seeFavorites">my favorites</span>
+    <i class="fi fi-rr-popcorn"></i>
   </header>
 
   <main class="text-white min-h-screen">
@@ -20,14 +24,15 @@
       <section class="choose flex justify-center py-4" id ="centrar-choose">
         <div  id = "center-h2">
           <h2 id="prompt"></h2>
+          <i class="fi fi-rr-flask-poison"></i>
         </div>
           
         <form id="form">
           <br><br> 
-          <select class="bg-gray-500 text-white font-bold" name="choice" id="inputrequest">
+          <select class="bg-gray-500 text-white font-bold rounded px-2" name="choice" id="inputrequest">
           </select>
           <br><br>
-          <button class="bg-blue-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-xl font-sans" type="submit" id="nextbtn">Next</button>
+          <button class="bg-blue-500 hover:bg-red-700 text-white font-bold p-2 rounded-lg text-xl font-sans" type="submit" id="nextbtn">Next</button>
         </form>
 
       </section>
@@ -50,21 +55,42 @@
     </div>
 
     <section class="results flex flex-wrap justify-center py-3 px-6 rounded">
-        <div id="cocktailResults" class="w-full md:w-1/2 text-center">
+        <div id="cocktailResults" class="w-full md:w-1/3 text-center">
             <h2 class="text-2xl font-serif font-bold">Your Drink</h2>
             <img src="" id="cocktailThumbnail" class="w-[350px] h-[400px] mx-auto py-4 rounded-2xl" alt="imagen of a random Drink"></img>
             <h3 id="cocktailName" class=" my-4 text-2xl font-bold"></h3>
-            <div class="bg-gray-500 rounded mx-16 p-8 justify-center" >
-              <p class="font-serif font-bold text-xl"> Made by yourself </p>
-              <ul id="ingredientsList"></ul>
-              <p id="recipe"></p>
+            <!-- toggle modal -->
+            <button data-modal-target="modal-recipe" data-modal-toggle="modal-recipe" class="w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center" type="button">
+            Get Recipe
+            </button>
+            <!-- modal info -->
+            <div id="modal-recipe" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+              <div class="relative w-full max-w-md max-h-full">
+                <div class="relative bg-white rounded-lg shadow">
+
+                  <div class="mx-10 p-8 justify-center text-black text-justify">
+                    <p class="font-serif font-bold text-xl text-center my-2"> Make it yourself </p>
+                    <ul id="ingredientsList"></ul>
+                    <p id="recipe"></p>
+                  </div>
+
+                  <div class="border-gray-200 rounded-b dark:border-gray-600 flex items-center p-6 space-x-2 border-t">
+                    <button data-modal-hide="modal-recipe" type="button" class="focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none">Got it!</button>
+                  </div>
+
+                </div>
+              </div>
             </div>
             
         </div>
 
-        <div id="movieResults" class="w-full md:w-1/2 text-center">
+        <div>
+          <button class="w-full text-center items-center bg-gray-500 rounded p-2" id="refresh" alt="go main page button">Go main page</button>
+        </div>
+
+        <div id="movieResults" class="w-full md:w-1/3 text-center">
             <h2 class="text-2xl font-serif font-bold">Your Movie</h2>
-            <img id="movieThumbnail" class="w-[350px] h-[400px] mx-auto py-4 my-auto py-4" alt="imagen of a random Movie"></img>
+            <img id="movieThumbnail" class="w-[350px] h-[400px] mx-auto py-4 my-auto py-4" alt="image of a random Movie"></img>
             <h3 id="movieName" class="my-4 text-2xl font-bold"></h3>
         </div>
 
@@ -77,6 +103,7 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
     <script src="./assets/script.js"></script>
     <!--<script src="./assets/cocktail-api.js"></script>
     <script src="./assets/IMDB-API.js"></script>-->

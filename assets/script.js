@@ -1,10 +1,10 @@
 var selectedchoice = document.querySelector('#inputrequest')
 var btn = document.querySelector('#nextbtn')
-var flag = 0;
 var promptEl = document.getElementById('prompt');
 document.querySelector('.results').style.display = "none";
 var cocktail =  ''
 var movie =  ''
+var flag = 0;
 
 const seeFavoritesSpan = document.getElementById('seeFavorites');
 const favoritesDiv = document.getElementById('favoritesDiv');
@@ -204,4 +204,11 @@ btn.addEventListener('click',function(e){
 		document.querySelector('.results').style.display = "flex";
 	}
 	flag++
+})
+
+
+var refreshpage = document.querySelector('#refresh');
+
+refreshpage.addEventListener('click', function(){
+	location.reload()
 })
