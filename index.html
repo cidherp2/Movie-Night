@@ -13,7 +13,7 @@
 <body class="bg-black text-white ">
   <header class="flex justify-between items-center py-8 bg-violet-900 text-white font-bold">
     <h1 class="text-4xl font-serif mx-auto">Movie Night Planner</h1>
-    <span class="text-sm cursor-pointer" id="seeFavorites">my favorites</span>
+    <span class="text-lG cursor-pointer" id="seeFavorites">My favorites</span>
     <i class="fi fi-rr-popcorn"></i>
   </header>
 
@@ -38,16 +38,16 @@
       </section>
     </div>
 
-    <div class="hidden" id="favoritesDiv">
-      <div id="favoriteDrinksDiv">
-        <h2>Your Favorite Drinks</h2>
+    <div class="hidden flex flex-wrap justify-center py-3 px-6" id="favoritesDiv">
+      <div id="favoriteDrinksDiv" class="w-full md:w-1/3 text-center">
+        <h2 class="text-xl font-serif font-bold">Your Favorites Drinks</h2>
         <ul id="favoriteDrinksList">
 
         </ul>
       </div>
       
-      <div id="favoriteMoviesDiv">
-        <h2>Your Favorite Movies</h2>
+      <div id="favoriteMoviesDiv" class="w-full md:w-1/3 text-center">
+        <h2 class="text-xl font-serif font-bold">Your Favorites Movies</h2>
         <ul id="favoriteMoviesList">
 
         </ul>
