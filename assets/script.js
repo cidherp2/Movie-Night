@@ -192,7 +192,7 @@ setValues(liquorOptions);
 
 btn.addEventListener('click',function(e){
 	e.preventDefault();
-	document.querySelector('#seeFavorites').style.display = "none"
+	//document.querySelector('#seeFavorites').style.display = "none"
 	document.querySelector('#favoritesDiv').style.display = 'none'
 	if (flag == 0){
 		getCocktails(selectedchoice.value)
